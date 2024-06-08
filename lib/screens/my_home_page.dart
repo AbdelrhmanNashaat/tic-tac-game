@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(Theme.of(context).splashColor),
+                    WidgetStateProperty.all(Theme.of(context).splashColor),
               ),
             ),
             const SizedBox(height: 40),
@@ -132,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (Player.playerO.isEmpty || !Player.playerO.contains(index))) {
       game.playGame(index, activePlayer);
       updateState();
-      if (!isSwitched && !gameOver&&turn!=9) {
+      if (!isSwitched && !gameOver && turn != 9) {
         await game.autoPlay(activePlayer);
         updateState();
       }
@@ -147,8 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (winnerPlayer != '') {
         gameOver = true;
         result = '$winnerPlayer Is The Winner';
-
-      } else if(!gameOver&& turn == 9){
+      } else if (!gameOver && turn == 9) {
         result = 'It\'s Draw';
       }
     });
